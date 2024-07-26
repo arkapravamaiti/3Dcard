@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Rotating Image Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #333;
+        }
+
+        .box {
+            position: relative;
+            width: 100px; /* Increased the width for better spacing */
+            height: 100px; /* Increased the height for better spacing */
+            transform-style: preserve-3d;
+            animation: animate 20s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+            100% {
+                transform: perspective(1000px) rotateY(360deg);
+            }
+        }
+
+        .box span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: rotateY(calc(var(--i) * 15deg)) translateZ(800px); /* Adjusted translateZ for better spacing */
+            -webkit-box-reflect: below 0px linear-gradient(transparent #0004);
+            border: 2px solid #444; /* Added border for separation */
+            overflow: hidden; /* Hide overflow for better appearance */
+            margin: 10px; /* Added margin for spacing */
+        }
+
+        .box span img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            user-select: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <!-- Replace the image sources with your actual image file paths -->
+            <span style="--i:1;"><img src="https://i.pinimg.com/236x/fe/cd/8c/fecd8c07327038f89d856be99334a773.jpg" alt="Image 1"></span>
+            <span style="--i:2;"><img src="https://i.pinimg.com/236x/79/69/7e/79697ee63ed51725a377ff4ece2f5aaf.jpg" alt="Image 2"></span>
+            <span style="--i:3;"><img src="https://i.pinimg.com/236x/f2/0a/07/f20a0724cd013eae7805b4a4873d4cac.jpg" alt="Image 3"></span>
+            <span style="--i:4;"><img src="https://i.pinimg.com/236x/76/6f/7b/766f7bf8c348cebfd6516fcf624bb1de.jpg" alt="Image 4"></span>
+            <span style="--i:5;"><img src="https://i.pinimg.com/236x/ef/27/dc/ef27dcd18b2da773c56edfbf31b19f1e.jpg" alt="Image 5"></span>
+            <span style="--i:6;"><img src="https://e0.pxfuel.com/wallpapers/552/531/desktop-wallpaper-madhubala-bollywood-actress-vintage.jpg" alt="Image 6"></span>
+            <span style="--i:7;"><img src="https://e0.pxfuel.com/wallpapers/179/538/desktop-wallpaper-madhubala-bollywood-actress-vintage.jpg" alt="Image 7"></span>
+            <span style="--i:8;"><img src="https://e0.pxfuel.com/wallpapers/820/550/desktop-wallpaper-madhubala-bollywood-actress-evergreen-actress.jpg" alt="Image 8"></span>
+            <span style="--i:9;"><img src="https://e0.pxfuel.com/wallpapers/578/419/desktop-wallpaper-madhubala-bollywood-actress-retro-bollywood.jpg" alt="Image 9"></span>
+            <span style="--i:10;"><img src="https://e0.pxfuel.com/wallpapers/322/576/desktop-wallpaper-madhubala-bollywood-actress-evergreen-actress.jpg" alt="Image 10"></span>
+            <span style="--i:11;"><img src="https://e0.pxfuel.com/wallpapers/832/979/desktop-wallpaper-madhubala-bollywood-actress-vintage.jpg" alt="Image 11"></span>
+            <span style="--i:12;"><img src="https://e0.pxfuel.com/wallpapers/10/461/desktop-wallpaper-madhubala-bollywood-actress.jpg" alt="Image 12"></span>
+            <span style="--i:13;"><img src="https://e0.pxfuel.com/wallpapers/547/565/desktop-wallpaper-madhubala-bollywood-actress.jpg" alt="Image 13"></span>
+            <span style="--i:14;"><img src="https://e0.pxfuel.com/wallpapers/959/540/desktop-wallpaper-madhubala-bollywood-actress-evergreen-actress.jpg" alt="Image 14"></span>
+            <span style="--i:15;"><img src="https://e0.pxfuel.com/wallpapers/284/169/desktop-wallpaper-madhubala-bollywood-actress-vintage.jpg" alt="Image 15"></span>
+            <span style="--i:16;"><img src="https://e0.pxfuel.com/wallpapers/421/593/desktop-wallpaper-madhubala-evergreen-actress-bollywood-actress.jpg" alt="Image 16"></span>
+            <span style="--i:17;"><img src="https://i.pinimg.com/736x/1d/b0/c5/1db0c5dd6b87ab5a90b85d068aeee92d.jpg" alt="Image 17"></span>
+            <span style="--i:18;"><img src="https://qph.cf2.quoracdn.net/main-qimg-fd531053d26ee8a6b98bb5c505e1b4f8-lq" alt="Image 18"></span>
+            <span style="--i:19;"><img src="https://resize.indiatvnews.com/en/resize/gallery/835_-/2018/02/m4-1518594205.jpg" alt="Image 19"></span>
+            <span style="--i:20;"><img src="https://resize.indiatvnews.com/en/resize/gallery/835_-/2018/02/m15-1518594205.jpg" alt="Image 20"></span>
+            <span style="--i:21;"><img src="https://resize.indiatvnews.com/en/resize/gallery/835_-/2018/02/m1-1518594205.jpg" alt="Image 21"></span>
+            <span style="--i:22;"><img src="https://resize.indiatvnews.com/en/resize/gallery/835_-/2018/02/m12-1518594205.jpg" alt="Image 22"></span>
+            <span style="--i:23;"><img src="https://resize.indiatvnews.com/en/resize/gallery/835_-/2018/02/m14-1518594205.jpg" alt="Image 23"></span>
+            <span style="--i:24;"><img src="https://resize.indiatvnews.com/en/resize/gallery/835_-/2018/02/m10-1518594205.jpg" alt="Image 24"></span>
+            <span style="--i:25;"><img src="https://resize.indiatvnews.com/en/resize/gallery/835_-/2018/02/m6-1518594205.jpg" alt="Image 25"></span>
+            <span style="--i:26;"><img src="https://resize.indiatvnews.com/en/resize/gallery/835_-/2018/02/m7-1518594205.jpg" alt="Image 26"></span>
+            <span style="--i:27;"><img src="https://feeds.abplive.com/onecms/images/uploaded-images/2023/02/14/9e4ae1c045c41b7e7a97b8d067c9b60e9ff0e.jpg?impolicy=abp_cdn&imwidth=480" alt="Image 27"></span>
+            <span style="--i:28;"><img src="https://www.filmibeat.com/img/1200x80x675/popcorn/movie_lists/bollywood-legendary-actress-madhubala-top-10-movies-20200213173223-3240.jpg" alt="Image 28"></span>
+        </div>
+    </div>
+</body>
+</html>

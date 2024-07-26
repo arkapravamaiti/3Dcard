@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(12, 12, 12);
+            color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .container{
+            background: white;
+            padding: 5rem;
+            border-radius: 5px;
+        }
+        .container h2{
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .special {
+            background: crimson;
+            padding: 5px 20px;
+            color: rgb(255, 255, 255);
+        }
+        .form-control{
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .form-control input{
+            background: transparent;
+            border: 0;
+            border-bottom: 2px solid black;
+            display: block;
+            width: 100%;
+            font-size: 20px;
+            color: black;
+            padding: 10px 0;
+        }
+        .form-control input:focus,
+        .form-control input:valid{
+            outline: 0;
+            border-bottom-color: crimson;
+        }
+        .btn{
+            background: crimson;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .btn:focus{
+            outline: 0;
+        }
+        .btn:active{
+            transform: scale(0.98);
+        }
+        .form-control label{
+            position: absolute;
+            top: 15px;
+            left: 0;
+            pointer-events: none;
+            transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        .form-control label span{
+            display: inline-block;
+            font-size: 20px;
+            min-width: 5px;
+            transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        .form-control input:focus + label span,
+        .form-control input:valid + label span{
+            color: crimson;
+            transform: translateY(-30px);
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <h2>place <span class="special">Login</span></h2>
+        <form action="">
+            <section class="form-control">
+                <input type="text" required>
+                <label for="">E-mail</label>
+            </section>
+            <section class="form-control">
+                <input type="password" required>
+                <label for="">Password</label>
+            </section>
+            <button class="btn">Login</button>
+        </form>
+    </main>
+    <script>
+        const allLabels = document.querySelectorAll(".form-control label");
+        allLabels.forEach((label) =>{
+            label.innerHTML = label.innerHTML.split("").map((letter, index) =>
+                `<span style="transition-delay:${index * 50}ms">${letter}</span>`
+            )
+            .join("");
+        });
+    </script>
+</body>
+</html>

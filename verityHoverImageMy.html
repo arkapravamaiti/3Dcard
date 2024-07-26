@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Flip Effect</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            margin: 30;
+        }
+        /*section1*/
+        .section1{
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            background-color: rgb(220, 220, 220);
+        }
+        .card1 {
+            margin: 20px;
+            width: 200px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            perspective: 1000px; /* Define the depth of the 3D effect */
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s; /* Add smooth transition */
+        }
+
+        .card1:hover {
+            transform: rotateY(180deg); /* Rotate the card on hover */
+        }
+
+        .card-face {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden; /* Hide the back face of the card */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: #fff;
+        }
+        #img1 {
+            width: 200px;
+            height: 300px;
+            object-fit: fill;
+        }
+        #img2 {
+            padding: 0;
+            position: absolute;
+            top: 10px;
+            width: 150px;
+            height: 50px;
+        }
+
+        .front {
+            border: 4px solid #000000;
+            
+        }
+
+        .back {
+            background-color: rgb(205, 205, 205);
+            transform: rotateY(180deg); /* Initially hide the back face */
+        }
+        p{
+            margin-top: 25%;
+            padding: 5px;
+            color: rgb(14, 0, 6);
+            font-size: 12px;
+            font-family: cursive;
+        }
+        /*section2*/
+        .card2 {
+            width: 200px;
+            height: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            margin: 20px;
+        }
+
+        .card2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card2:hover {
+            transform: scale(1.1);
+        }
+
+        .card2 .content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            box-sizing: border-box;
+            transition: 0.3s;
+            transform: translateY(100%);
+        }
+
+        .card2:hover .content {
+            transform: translateY(0);
+        }
+        /*section3   XYZ changekore baki kora jabe*/
+        .flip-container {
+            perspective: 1000px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .flip-container:hover .flip-card {
+            transform: rotateX(180deg);
+        }
+
+        .flip-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .flip-card-inner {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .flip-card-front{
+            background-color: #000000;
+        }
+        .flip-card-front img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                
+            }
+        
+
+        .flip-card-back {
+            background-color: #000000;
+            transform: rotateX(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="section1">
+    <div class="card1">
+        <div class="card-face front">
+            <img id="img1" src="https://i.pinimg.com/736x/98/13/4d/98134d00bc1a9ab25aa6f772681aa303--pictures-of-princess-diana-shower-cap.jpg">
+        </div>
+        <div class="card-face back">
+            <img id="img2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Lady_Diana_signature-vect.svg/2560px-Lady_Diana_signature-vect.svg.png">
+            <p><b>Full Name:</b>	Diana Frances Spencer. <br>
+                <b>Date of Death:</b>	August 31, 1997. <br>
+                <b>Known For:</b>Royal duties, humanitarian work, fashion icon, global popularity. <br>
+                <b>Titles:</b>	Lady Diana Spencer (1961-1981), The Princess of Wales (1981-1996), Diana, Princess of Wales (1996-1997). <br>
+                <b>Death:</b>Died in a car crash in Paris, France.
+            </p>
+        </div>
+    </div>
+
+    <div class="card1">
+        <div class="card-face front">
+            <img id="img1" src="https://i.pinimg.com/originals/01/fc/14/01fc14c5b3e28f7279f41aaaeb922e80.jpg">
+        </div>
+        <div class="card-face back">
+            <img id="img2" src="https://res.cloudinary.com/teepublic/image/private/s--Fs8kYrqX--/t_Preview/b_rgb:ffffff,c_lpad,f_jpg,h_630,q_90,w_1200/v1566300899/production/designs/5669902_0.jpg">
+            <p><b>Full Name:</b>	Diana Frances Spencer. <br>
+                <b>Date of Death:</b>	August 31, 1997. <br>
+                <b>Known For:</b>Royal duties, humanitarian work, fashion icon, global popularity. <br>
+                <b>Titles:</b>	Lady Diana Spencer (1961-1981), The Princess of Wales (1981-1996), Diana, Princess of Wales (1996-1997). <br>
+                <b>Death:</b>Died in a car crash in Paris, France.
+            </p>
+        </div>
+    </div>
+
+
+    <div class="card1">
+        <div class="card-face front">
+            <img id="img1" src="https://i.pinimg.com/564x/c5/f5/0b/c5f50bb060e17b6541e76ef6fc794194.jpg">
+        </div>
+        <div class="card-face back">
+            <img id="img2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Signature_of_Aishwarya_Rai_Bachchan.svg/300px-Signature_of_Aishwarya_Rai_Bachchan.svg.png">
+            <p><b>Full Name:</b>	Diana Frances Spencer. <br>
+                <b>Date of Death:</b>	August 31, 1997. <br>
+                <b>Known For:</b>Royal duties, humanitarian work, fashion icon, global popularity. <br>
+                <b>Titles:</b>	Lady Diana Spencer (1961-1981), The Princess of Wales (1981-1996), Diana, Princess of Wales (1996-1997). <br>
+                <b>Death:</b>Died in a car crash in Paris, France.
+            </p>
+        </div>
+    </div>
+
+    <div class="card1">
+        <div class="card-face front">
+            <img id="img1" src="https://th.bing.com/th/id/R.c95de957a8c628df0d1abdf1e87c89f6?rik=XBHaTa0t8v%2fW%2bA&riu=http%3a%2f%2f1.bp.blogspot.com%2f_BbJAArGDIEA%2fSJ5yDpzGotI%2fAAAAAAAAIyg%2fRmmQ5TwPaJA%2fs640%2fsitar.jpg&ehk=ZaTU%2bBdUoZ4WNn7d11loWtQ%2fgzZHbebiDEE7k2VicLY%3d&risl=&pid=ImgRaw&r=0">
+        </div>
+        <div class="card-face back">
+            <img id="img2" src="https://notednames.com/ImgMoreAbt/vvfa_SignImg.jpg">
+            <p><b>Full Name:</b>	Diana Frances Spencer. <br>
+                <b>Date of Death:</b>	August 31, 1997. <br>
+                <b>Known For:</b>Royal duties, humanitarian work, fashion icon, global popularity. <br>
+                <b>Titles:</b>	Lady Diana Spencer (1961-1981), The Princess of Wales (1981-1996), Diana, Princess of Wales (1996-1997). <br>
+                <b>Death:</b>Died in a car crash in Paris, France.
+            </p>
+        </div>
+    </div>
+
+    <div class="card1">
+        <div class="card-face front">
+            <img id="img1" src="https://i.pinimg.com/originals/e5/34/04/e53404b0ee96649da3972f85b5938ae6.jpg">
+        </div>
+        <div class="card-face back">
+            <img id="img2" src="https://upload.wikimedia.org/wikipedia/en/a/ad/Divya_Bharti%27s_Signature.jpg">
+            <p><b>Full Name:</b>	Diana Frances Spencer. <br>
+                <b>Date of Death:</b>	August 31, 1997. <br>
+                <b>Known For:</b>Royal duties, humanitarian work, fashion icon, global popularity. <br>
+                <b>Titles:</b>	Lady Diana Spencer (1961-1981), The Princess of Wales (1981-1996), Diana, Princess of Wales (1996-1997). <br>
+                <b>Death:</b>Died in a car crash in Paris, France.
+            </p>
+        </div>
+    </div>
+    <div class="card1">
+        <div class="card-face front">
+            <img id="img1" src="https://i.pinimg.com/originals/83/29/a9/8329a9ad453222b8db8d927b46d69af4.jpg">
+        </div>
+        <div class="card-face back">
+            <img id="img2" src="https://www.celebrityhow.com/wp-content/uploads/2018/09/Madhuri-Dixit-Signature-300x152.jpg">
+            <p><b>Full Name:</b>	Diana Frances Spencer. <br>
+                <b>Date of Death:</b>	August 31, 1997. <br>
+                <b>Known For:</b>Royal duties, humanitarian work, fashion icon, global popularity. <br>
+                <b>Titles:</b>	Lady Diana Spencer (1961-1981), The Princess of Wales (1981-1996), Diana, Princess of Wales (1996-1997). <br>
+                <b>Death:</b>Died in a car crash in Paris, France.
+            </p>
+        </div>
+    </div>
+    
+    <div class="card2">
+        <img src="https://64.media.tumblr.com/9f2bf84d17c8e3752bba9a9d6bf73f2e/tumblr_obt2xlWtDF1uv6fyho1_1280.jpg" alt="Card Image">
+        <div class="content">
+            <h2>Brad Pitt</h2>
+            <p>Hover over the card for the effect</p>
+        </div>
+    </div>
+    <div class="card2">
+        <img src="https://i.pinimg.com/originals/11/54/f5/1154f512cfc62318f7753e4577f3e94d.jpg" alt="Card Image">
+        <div class="content">
+            <h2>Leonardo Dicaprio</h2>
+            <p>Hover over the card for the effect</p>
+        </div>
+    </div>
+    <div class="card2">
+        <img src="https://i.pinimg.com/originals/8e/07/85/8e07854ee56b9fe8faedfdcc8dda306a.jpg" alt="Card Image">
+        <div class="content">
+            <h2>Tom Cruise</h2>
+            <p>Hover over the card for the effect</p>
+        </div>
+    </div>
+    <div class="card2">
+        <img src="https://i.pinimg.com/originals/47/37/ca/4737ca5f1905f60b139cdd77dcb1beeb.jpg" alt="Card Image">
+        <div class="content">
+            <h2>Chris Hemsworth</h2>
+            <p>Hover over the card for the effect</p>
+        </div>
+    </div>
+    <div class="card2">
+        <img src="https://2.bp.blogspot.com/_lKGfK1-7MTs/TSE0CDtIBMI/AAAAAAAAAKA/0txBkqESFIk/s1600/Hrithik-Roshan33.jpg" alt="Card Image">
+        <div class="content">
+            <h2>Hrithik Roshan</h2>
+            <p>Hover over the card for the effect</p>
+        </div>
+    </div>
+    <div class="card2">
+        <img src="https://th.bing.com/th/id/R.7474bf6f7649bd5aa57524ee2c29ecec?rik=ble0rnd0CVkg2A&riu=http%3a%2f%2fwww.frenchtoastsunday.com%2fwp-content%2fuploads%2f2013%2f05%2fhenry-cavill-photo_.jpg&ehk=ZXzHaOvpuA8WWluG2Pl1oa8tZRzAlqdr1dr0ymgVL1I%3d&risl=&pid=ImgRaw&r=0" alt="Card Image">
+        <div class="content">
+            <h2>Henry Cavill</h2>
+            <p>Hover over the card for the effect</p>
+        </div>
+    </div>
+
+    <div class="flip-container">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="https://www.entrepreneurindia.com/influencer/images/speakers/ashish.jpg"></div>
+                <div class="flip-card-back">Back</div>
+            </div>
+        </div>
+    </div>
+    <div class="flip-container">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="https://wallpapercave.com/wp/wp6566232.jpg" alt=""></div>
+                <div class="flip-card-back">Back</div>
+            </div>
+        </div>
+    </div><div class="flip-container">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="https://c.ndtvimg.com/2023-06/vsnd2es_bhuvan-bam_625x300_21_June_23.jpg?downsize=930:*" alt=""></div>
+                <div class="flip-card-back">Back</div>
+            </div>
+        </div>
+    </div><div class="flip-container">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="https://static.toiimg.com/photo/imgsize-896829,msid-77404577,width-400,resizemode-4/77404577.cms" alt=""></div>
+                <div class="flip-card-back">Back</div>
+            </div>
+        </div>
+    </div>
+    <div class="flip-container">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="https://akm-img-a-in.tosshub.com/aajtak/images/photo_gallery/202009/carry-minati-10.jpg" alt=""></div>
+                <div class="flip-card-back">Back</div>
+            </div>
+        </div>
+    </div>
+    <div class="flip-container">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="https://assets.blubrry.com/coverart/300/1304158.jpg" alt=""></div>
+                <div class="flip-card-back">Back</div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+</body>
+</html>

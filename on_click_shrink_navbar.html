@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            border-radius: 3px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.438);
+            transition: all 0.6s linear;
+            overflow: hidden;
+            width: 30%;
+            max-width: 80px;
+        }
+        nav.active {
+            max-width: 100%;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            overflow: hidden;
+        }
+        nav ul li {
+            margin: 0 10px;
+            white-space: nowrap;
+            transition: opacity 0.6s;
+        }
+        nav ul a {
+            position: relative;
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+        .icon {
+            background: white;
+            border: 0;
+            padding: 0;
+            position: relative;
+            height: 30px;
+            width: 30px;
+            outline: none;
+            cursor: pointer;
+            margin-left: auto;
+        }
+        .icon .line {
+            background: coral;
+            height: 2px;
+            width: 20px;
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            transition: transform 0.6s linear;
+        }
+        .icon .line2 {
+            top: auto;
+            bottom: 10px;
+        }
+        nav.active .icon .line1 {
+            transform: rotate(-765deg) translateY(5.5px);
+        }
+        nav.active .icon .line2 {
+            transform: rotate(765deg) translateY(-5.5px);
+        }
+        /* Dropdown container */
+        .dropdown-container {
+            display: none;
+            background-color: #262626;
+            padding: 15px;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            position: absolute;
+            z-index: 1;
+            width: 200px;
+        }
+        .dropdown-container a {
+            color: #f1f1f1;
+            padding: 10px 0;
+            display: block;
+            border-bottom: 1px solid #444;
+        }
+        .dropdown-container a:hover {
+            background-color: #575757;
+        }
+        .dropdown-btn {
+            background: none;
+            border: none;
+            padding: 10px;
+            color: #818181;
+            font-size: 18px;
+            text-align: left;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s, color 0.3s;
+            position: relative;
+        }
+        .dropdown-btn:hover {
+            color: #f1f1f1;
+            background-color: #575757;
+        }
+        .dropdown-btn .fa-caret-down {
+            margin-left: 5px;
+        }
+        nav.active .dropdown-container {
+            display: block;
+            max-height: 100px; /* Adjust as needed */
+            opacity: 1;
+        }
+        nav ul li.hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Works</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contacts</a></li>
+            <li>
+                <button class="dropdown-btn">Dropdown
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </li>
+            <li><a href="">Search</a></li>
+        </ul>
+        <button class="icon" id="toggle">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+        </button>
+    </nav>
+    <script>
+        // Toggle nav expansion
+        const toggle = document.getElementById("toggle");
+        const nav = document.getElementById("nav");
+        const navItems = document.querySelectorAll('nav ul li');
+
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle("active");
+            navItems.forEach((item, index) => {
+                if (index > 3) { // Adjust the index according to how many items you want to show
+                    item.classList.toggle('hide');
+                }
+            });
+        });
+
+        // Dropdown functionality
+        const dropdowns = document.getElementsByClassName("dropdown-btn");
+        Array.from(dropdowns).forEach(button => {
+            button.addEventListener("click", function() {
+                this.classList.toggle("active");
+                const dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.maxHeight) {
+                    dropdownContent.style.maxHeight = null;
+                    dropdownContent.style.opacity = 0;
+                } else {
+                    dropdownContent.style.maxHeight = dropdownContent.scrollHeight + "px";
+                    dropdownContent.style.opacity = 1;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

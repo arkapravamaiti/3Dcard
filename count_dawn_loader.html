@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circle{
+            width: 180px;
+            height: 180px;
+            background: conic-gradient(
+                from 0deg at 50% 50%,
+                #6f7bf7 0%,
+                #83fff9 50%,
+                #a229ff 30%,
+                #e868ff 20%
+            );
+            color: #47f0ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            box-shadow: 4px 4px 16px #000000,
+            -4px -4px 16px #4a4a4a;
+            animation: spin 1s infinite linear;
+            position: relative;
+        }
+        @keyframes spin{
+
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        .count{
+            content: "";
+            width: 174px;
+            height: 174px;
+            background: #000000;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.8) inset,-4px -4px 16px rgba(173, 173, 173, 0.8) inset;
+            animation: spin 1s infinite
+            linear reverse;
+        }
+        .percent{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 4em;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="circle">
+        <div class="count">
+            <span class="percent">50</span>
+        </div>
+    </div>
+</body>
+<script>
+    const $percent = document.querySelector('.percent');
+    const $circle = document.querySelector('.circle');
+    let load = 0;
+    function update(){
+        load += load < 100;
+        $percent.innerHTML = load;
+        $circle.style.background = `conic-gradient(from 0deg at 50% 50%, #6f7bf7 0%, #9bf88f4 ${load}%, #101012 ${load}%)`;
+    }
+    setInterval(update,150);
+</script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        canvas {
+            border: 1px solid #ccc;
+        }
+
+        #inputText {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #generateBtn {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="qrcode" width="300" height="300"></canvas>
+    <p></p>
+    <input type="text" id="inputText" placeholder="Enter text for QR code">
+    
+    <button id="generateBtn" onclick="generateQRCode()">Generate QR Code</button>
+
+    <script>
+        function generateQRCode() {
+            // Get the input text
+            const inputText = document.getElementById('inputText').value;
+
+            // Select the canvas element
+            const canvas = document.getElementById('qrcode');
+            const context = canvas.getContext('2d');
+
+            // Clear canvas
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw the QR code on the canvas
+            const qrSize = Math.min(canvas.width, canvas.height);
+            context.fillStyle = '#fff';
+            context.fillRect(0, 0, qrSize, qrSize);
+
+            const modules = 17; // Number of modules for a basic QR code
+            const moduleSize = qrSize / modules;
+
+            for (let row = 0; row < modules; row++) {
+                for (let col = 0; col < modules; col++) {
+                    if (Math.random() < 0.5) { // Randomly choose dark modules
+                        context.fillStyle = '#000';
+                        context.fillRect(col * moduleSize, row * moduleSize, moduleSize, moduleSize);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

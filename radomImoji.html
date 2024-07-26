@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Emoji on Click</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #ccc;
+        }
+        #emoji {
+            font-size: 10rem;
+            filter: grayscale(0);
+            transition-property: transform, filter;
+            transition-duration: 200ms;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="emoji">😘</div>
+    <script>
+        const btn = document.querySelector('#emoji');
+        const emoji = [
+            "😀", "😃", "😄", "😁", "😆", "🥹", "😅", "😂", "🤣", "🥲", "😊", "😇", "🙂", "🙃", "😉", "😌", "😍", "🥰", "😘", 
+            "😗", "😙", "😚", "😋", "😛", "😝", "🤪", "😜", "🤨", "🧐", "🤓", "😎", "🥸", "🤩", "🥳", "😏", "😒", "😞", "😔", 
+            "😟", "😕", "🙁", "😣", "😖", "😫", "😩", "🥺", "😢", "😭", "😤", "😠", "🤯", "😳", "🥵", "🥶", "😶‍🌫", "😱", "😨", 
+            "😰", "😥", "😓", "🤗", "🤔", "🫣", "🤭", "🫢", "🫡", "🤫", "🫠", "🤥", "😶", "😐", "🫤", "😑", "😲", "😮", "😧", 
+            "😦", "😯", "🙄", "😬", "🫨", "🥱", "😴", "🤤", "😪", "😵", "😵‍💫", "🤐", "🥴", "🤢", "🤮", "🤧", "😷", "🤒", "🤕", 
+            "🤑", "🤠"
+        ];
+        
+        btn.addEventListener('click', () => {
+            btn.innerHTML = emoji[Math.floor(Math.random() * emoji.length)];
+        });
+    </script>
+</body>
+</html>

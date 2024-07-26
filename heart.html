@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Like Button</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --main-color: rgb(255, 24, 24);
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+        }
+        .heart-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+        .gray-heart, .red-heart {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(45deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .gray-heart {
+            background: #ccc;
+            transition: background 0.3s;
+        }
+        .gray-heart::before, .gray-heart::after, .red-heart::before, .red-heart::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: inherit;
+        }
+        .gray-heart::before {
+            top: -50px;
+            left: 0;
+        }
+        .gray-heart::after {
+            left: -50px;
+            top: 0;
+        }
+        .red-heart {
+            background: var(--main-color);
+            visibility: hidden;
+        }
+        .red-heart::before, .red-heart::after {
+            background-color: var(--main-color);
+        }
+        .red-heart::before {
+            top: -50px;
+            left: 0;
+        }
+        .red-heart::after {
+            left: -50px;
+            top: 0;
+        }
+        .red-heart.animation {
+            animation: pop 0.9s linear;
+            visibility: visible;
+        }
+        .fill-color {
+            background: var(--main-color);
+        }
+        @keyframes pop {
+            0% {
+                transform: scale(1) rotate(45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.7) rotate(45deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="heart-container">
+        <div class="gray-heart"></div>
+        <div class="red-heart"></div>
+    </div>
+
+    <script>
+        const grayHeart = document.querySelector('.gray-heart');
+        const redHeart = document.querySelector('.red-heart');
+        let isLiked = false;
+
+        grayHeart.addEventListener('click', () => {
+            if (!isLiked) {
+                redHeart.classList.add('animation');
+                grayHeart.classList.add('fill-color');
+                isLiked = true;
+            } else {
+                grayHeart.classList.remove('fill-color');
+                isLiked = false;
+            }
+        });
+
+        redHeart.addEventListener('animationend', () => {
+            redHeart.classList.remove('animation');
+            if (!isLiked) {
+                grayHeart.classList.remove('fill-color');
+            }
+        });
+    </script>
+</body>
+</html>
