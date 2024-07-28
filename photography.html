@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLLEGE-WEB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+        .header {
+            min-height: 90vh;
+            width: 100%;
+            background-image: url("https://static.vecteezy.com/system/resources/previews/008/721/153/large_2x/single-one-line-drawing-journalist-or-reporter-with-backpack-making-pictures-photographers-of-paparazzi-taking-photo-with-digital-cameras-dslr-continuous-line-draw-design-graphic-illustration-vector.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+    nav{
+        display: flex;
+        padding: 2% 6%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-links{
+        flex: 1;
+        text-align: right;
+    }
+    .nav-links ul li{
+        list-style: none;
+        display: inline-block;
+        padding: 8px 12px;
+        position: relative;
+    }
+    .nav-links ul li a{
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 13px;
+        font-family: 'Caprasimo', cursive;
+    }
+    .nav-links ul li::after{
+        content: " ";
+        width: 0%;
+        height: 2px;
+        background-color: #043500;
+        display: block;
+        margin: auto;
+        transition: 0.5s;
+    }
+    .nav-links ul li:hover::after{
+        width: 100%;
+    }
+    .text-box{
+        width: 90%;
+        color: rgb(255, 47, 0);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        
+        transform: translate(-50% , -50%);
+        text-align: center;
+    }
+    .text-box h1{
+        font-size: 40px;
+        padding-left: 60%;
+    }
+    .text-box p{
+        margin: 10px 0px 40px 10px;
+        font-size: 20px;
+        color: rgb(255, 81, 0);
+        padding-left: 60%;
+    }
+    .hero-btn{
+        display: inline-block;
+        text-decoration: none;
+        color: rgb(1, 25, 0);
+        padding: 12px 34px;
+        font-size: 13px;
+        background: transparent;
+        position: relative;
+        cursor: pointer;
+    }
+    .hero-btn:hover{
+    border: 1px solid #043200;
+    background: #2fff5f;
+    transition: 1s;
+    }
+    nav .fa{
+    display: none;
+    }
+    @media(max-width: 800px){
+    .text-box h1{
+        font-size: 20px;
+        padding-left: 10%;
+        align-items: center;
+        text-align: center;
+    }
+    .text-box p{
+        
+        font-size: 10px;
+        color: rgb(0, 13, 255);
+        padding-left: 10%;
+    }
+    .text-box{
+        width: 90%;
+        color: rgb(0, 47, 255);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
+        text-align: center;
+    }
+    .header {
+        min-height: 90vh;
+        width: 100%;
+        background-image: url("https://th.bing.com/th/id/OIP.7OPiA4QUezTtbnruHpOlBQHaHa?w=626&h=626&rs=1&pid=ImgDetMain");
+        
+    }
+}
+
+
+    <!---course---->
+
+    .course{
+    width: 80px;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    padding-top: 100px;
+    
+    }
+    h1{
+    font-size: 36px;
+    font-weight: 600;
+    text-align: center;
+    }
+    p{
+    color: #000000;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 22px;
+    text-align: center;
+    padding: 10px;
+    }
+    .row{
+    
+    display: flex;
+    justify-content: space-between;
+    }
+    .course-col{
+    flex-basis: 31%;
+    background-color: #fff828;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    }
+    h2{
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+    }
+    .course-col:hover{
+    box-shadow: 0 0 20px rgb(0, 0, 0);
+    }
+    @media(max-width:800px){
+    .row{
+        flex-direction: column;
+    }
+    }
+/*----------campus-----*/
+.campus{
+    align-items: center;
+    text-align: center;
+}
+.container{
+    margin: 5%;
+    margin-left: 10%;
+    height: 30vh;
+    width: 90vw;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img-container,
+.img-container1,
+.img-container2{
+    position: relative;
+    height: 30%;
+    width: 90%;
+    perspective: 500px;
+    transform-style: preserve-3d;
+    
+}
+.box{
+    box-shadow: 0 0 10px rgb(0, 0, 0 /100%);
+    width: 250px;
+    height: 250px;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 1px solid #bbb;
+    position: absolute;
+    top: 50%;
+    transition: 0.8s ease-in-out;
+}
+.box img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+.box:first-of-type{
+    z-index: 5;
+    opacity: 0;
+    left: 15%;
+    transform: translate(-50%,-50) rotateY(-10deg);
+}
+.box:nth-of-type(2){
+    opacity: 1;
+    left: 20%;
+    transform: translate(-50%,-50%) rotateY(-10deg);
+    z-index: 5;
+}
+.box:nth-of-type(3){
+    opacity: 0.75;
+    left: 25%;
+    color: #eee;
+    transform: translate(-50%,-50%) rotateY(-10deg) translateZ(-50px);
+    z-index: 10;
+}
+.box:nth-of-type(4){
+    opacity: 0.5;
+    left: 30%;
+    transform: translate(-50%,-50%) rotateY(-10deg) translateZ(-100px);
+    z-index: 5;
+}
+.box:nth-of-type(5){
+    opacity: 0.25;
+    left: 30%;
+    transform: translate(-50%,-50%) rotateY(-10deg) translateZ(-100px);
+    z-index: 5;
+}
+@media(max-width:800px){
+    
+    .container{
+        background-color: #fff;
+        margin-left: 10%;
+        height: 120vh;
+        display: flex;
+        flex-direction: column;
+    }
+    .box{
+        box-shadow: 0 0 10px rgb(0, 0, 0 /100%);
+        width: 200px;
+        height: 200px;
+        border-radius: 25px;
+        overflow: hidden;
+        border: 1px solid #bbb;
+        position: absolute;
+        top: 50%;
+        transition: 0.8s ease-in-out;
+    }
+ }
+/*offers for you */
+.main-flip-container{
+    display: flex;
+    height: 50vh;
+    margin-bottom: 10%;
+    justify-content: center;
+    border-radius: 30px;
+    margin-bottom: 10%;
+}
+.flip-container {
+    display: flex;
+    margin-top: 0;
+    perspective: 300px;
+    width: 30%;
+    height: 100%;
+    margin: 5%;
+    border-radius: 30px;
+}
+
+.flip-container:hover .flip-card {
+    transform: rotatey(180deg);
+}
+
+.flip-card {
+    position: relative;
+    width: 100%;
+    border-radius: 30px;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.flip-card-front img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 30px;
+    }
+.flip-card-back {
+    flex-direction: column;
+    margin: 5%;
+background: linear-gradient(90deg, rgb(158, 3, 255) 0%, rgba(255, 0, 187, 0.543) 100%);
+color: white;
+    transform: rotateY(180deg);
+}
+@media(max-width:800px){
+    .main-flip-container{
+        height: 150vh;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 15px;
+        
+        margin-bottom: 15%;
+    }
+    .flip-container {
+        margin-top: 0;
+        perspective: 600px;
+        width: 80%;
+        height: 100%;
+        margin: 5%;
+        border-radius: 30px;
+    }
+}
+    /*facilities*/
+    .facilities-container{
+    width: 90%;
+    margin-top: 10%;
+    margin: auto;
+    text-align: center;
+    padding-top: 10px;
+ }
+ .facilities {
+    width: 100%;
+    height: 30%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.facilities img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.facilities:hover {
+    transform: scale(1.1);
+}
+
+.facilities .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    box-sizing: border-box;
+    transition: 0.3s;
+    transform: translateY(100%);
+}
+.content p{
+    color: white;
+}
+.facilities:hover .content {
+    transform: translateY(0);
+}
+ /*testimonials*/
+ .testimonials{
+    width: 80%;
+    margin: auto;
+    padding-top: 100px;
+    text-align: center;
+ }
+ .testimonial-col{
+    flex-basis: 44%;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-bottom: 5%;
+    text-align: left;
+    background: #ffa9f99c;
+    padding: 25px;
+    cursor: pointer;
+    display: flex;
+ }
+ .testimonial-col img{
+    height: 50px;
+    margin-left: 5px;
+    margin-right: 30px;
+    border-radius: 50%;
+ }
+ .testimonial-col p{
+    padding: 0;
+ }
+ .testimonial-col h3{
+    margin-top: 15px;
+    text-align: left;
+ }
+ .testimonial-col .fa{
+    color: rgb(0, 81, 3);
+ }
+ @media(max-width:800px){
+    .testimonial-col img{
+    margin-left: 0px;
+    margin-right: 15px;
+    
+ }
+ }
+ .cta{
+    margin: 100px auto;
+    width: 80%;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("https://i.pinimg.com/736x/f3/b8/40/f3b8408783c154297a7cc4d59af7eb09.jpg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 100px 0;
+ }
+ .cta h1{
+    color: #fff;
+    margin-bottom: 40px;
+    padding: 0;
+ }
+ @media(max-width:800px){
+    .cta h1{
+        font-size: 24px;
+    }
+ }
+ /*footer*/
+ .footer{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+ }
+ .footer h4{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+ }
+ .icon .fa{
+color: #f44336;
+margin: 0 13px;
+cursor: pointer;
+padding: 18px 0;
+ }
+</style>
+<body>
+    <section class="header">
+<nav>
+    <div class="nav-links">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ABOUT US</a></li>
+            <li><a href="#">SERVICES</a></li>
+            
+        </ul>
+    </div>
+</nav>
+<div class="text-box">
+<h1> MOMENT IN FRAMES </h1>
+<P>
+    <b>Capture the beautiful moments of your beautiful life.</b>
+    we are here to provide our customers with ighest quality of service. With our dedication to customar satisfactain, you can rest assured that you will have a great experience.
+</P>
+<a href="#" class="hero-btn">MORE ABOUT US</a>
+</div>
+    </section>
+
+
+    <!----campus--------->
+
+    <section class="campus">
+
+        <h1>
+            SOME SPECIAL MOMENTS IN FRAMES
+        </h1>
+        <p>We provide specialized photography services to help you preserve your cherished memories. <br>Trust our expert team to capture your most precious moments with creativity and professionalism</p>
+        <div class="container">
+            <div class="img-container">
+                <div class="box">
+                    <img src="https://cdn.cdnparenting.com/articles/2018/02/671699176-H-1024x700.webp" alt="">
+                </div>
+                <div class="box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1xa-N4Pa6adQym03YFf_3taZRFkvd5RnaHsH9kxxrzpIbJn9lq2uh3Q1PT2x9WvvRneM&usqp=CAU" alt="">
+                </div>
+                <div class="box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfY7pFMcfYmSUgHNfGrSNGqINiuai8hDWoxUHQwATCChur_OnuRtUS1N91zeuT1B3Xut8&usqp=CAU" alt="">
+                </div>
+                <div class="box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi2DsYoNH9S0XmCES9iHLYr7T7DbyL9y7mt4GMjFtIvzBPz0vH72fEFJNr5lW-8evoTEo&usqp=CAU" alt="">
+                </div>
+                <div class="box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQchHWaXrfUs48mcnSSu_bRGIcje2mdgW2RBfOQTO5gPwR_C4nbX9rTQwmZuB5TEYeOsbc&usqp=CAU" alt="">
+                </div>
+            </div>
+        
+            <div class="img-container1">
+                <div class="box">
+                    <div class="box">
+                        <img src="https://image.wedmegood.com/resized-nw/1300X/wp-content/uploads/2024/02/8ae51c0d02e35d8efb72d27b13166407.jpg" alt="">
+                    </div>
+                    <img src="https://getethnic.com/wp-content/uploads/2020/05/2Indian-Wedding-Rituals-indian-couple.jpg" alt="">
+                </div>
+                <div class="box">
+                    <img src="https://media.gettyimages.com/id/542095487/photo/bengali-bride-hiding-her-face-from-the-groom.jpg?s=612x612&w=0&k=20&c=1yHHmPOjwY-hHvAcQRRvR2-m9qWp4OlV-8M-ttwlTns=" alt="">
+                </div>
+                <div class="box">
+                    <img src="https://getethnic.com/wp-content/uploads/2020/05/16jhjhjhjh64f1e86c874e309d8c1f5b4f4631f050.jpg" alt="">
+                </div>
+                <div class="box">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Expression_of_love_Just_after_sindur_dan_P1260555.jpg" alt="">
+                </div>
+            </div>
+        
+            <div class="img-container2">
+                <div class="box">
+                    <img src="https://i.pinimg.com/236x/8a/d1/a9/8ad1a9075da7aedaa15b96fc382ac53d.jpg" alt="">
+                </div>
+                <div class="box">
+                    <img src="https://socialbarta.in/wp-content/uploads/2022/04/IMG-20220429-WA0040.jpg" alt="">
+                </div>
+                <div class="box">
+                    <img src="https://i.pinimg.com/236x/9c/d6/5e/9cd65e3d6847de39f9f61911bd0b840f.jpg" alt="">
+                </div>
+                <div class="box">
+                    <img src="https://i.pinimg.com/236x/25/75/f2/2575f27bad0abdd65e64b5a0538fda33.jpg" alt="">
+                </div>
+                <div class="box">
+                    <img src="https://i.pinimg.com/236x/28/6f/fa/286ffae42efca8050e0afe12d4cb9ce9.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+            
+    </section>
+    <!----course----->
+
+    <section class="course">
+        <h1>
+        Our Offers for YOU
+        </h1>
+        <p>Lorem ipsum dolor sit amet cons</p>
+        <div class="main-flip-container">
+            <div class="flip-container">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"><img src="https://chicmags.com/wp-content/uploads/2022/10/When-to-Take-Wedding-Photos.jpeg"></div>
+                        <div class="flip-card-back">
+                            <h2>Event Photography</h2>
+                            <p>Capture the essence of your special events with our professional event photography services. From intimate gatherings to grand celebrations, we ensure every significant moment is immortalized. Our experienced photographers specialize in low-light settings and dynamic shots, guaranteeing vibrant and sharp images that tell the story of your event. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"><img src="https://images.squarespace-cdn.com/content/v1/56897faf9cadb68804aa528a/1708041084336-J1RBEO7QA82Z00WNGI33/Personal+Branding+Photographer+Auckland-13.jpg?format=500w" alt=""></div>
+                        <div class="flip-card-back"><h2>Personalized Photography</h2>
+                            <p>
+            Our personalized photography service is all about you and your unique story. Whether it’s a family portrait, a personal branding session, or a creative project, we bring your vision to life. We collaborate closely with you to understand your style and preferences, ensuring the photos reflect your individuality.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="flip-container">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"><img src="https://img.freepik.com/premium-photo/beautiful-scenery-pictures-give-your-projects-new-life_966002-42914.jpg?w=1060" alt=""></div>
+                        <div class="flip-card-back">  <h2>Product Photography</h2>
+                            <p>
+            Elevate your brand with our professional product photography. Crisp, clear, and compelling images can make all the difference in showcasing your products. We offer both studio and lifestyle product shots, providing high-quality images that highlight the features and benefits of your products.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+            </div>
+        </div>
+            </section>
+<!-----facilities------>
+<section class="facilities-container">
+<h1>Our facilities</h1>
+<p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id placeat ratione nue eius!
+</p>
+    <div class="row">
+        <div class="facilities">
+            <img src="https://th.bing.com/th/id/OIP.2Z-jZl_GEIkSALDWCZNYUwHaE8?w=1170&h=780&rs=1&pid=ImgDetMain" style="width: 100%;">
+            <div class="content">
+            <h3>
+                High Quality Gadgets
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt est quidem debitis aut. Repellendus velit illum repudiandae nihil!
+            </p>
+            </div>
+        </div>
+        <div class="facilities">
+            <img src="https://assets.website-files.com/5fcfb1969ae5bbd9ee9602ea/603689b7ee6f32ad4cff49a9_DSC_2536_5.jpg" style="width: 100%;">
+            <div class="content">
+            <h3>
+                Expert Editig team
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt est quidem debitis aut. Repellendus velit illum repudiandae nihil!
+            </p>
+            </div>
+        </div>
+        <div class="facilities">
+            <img src="https://static.photocdn.pt/images/articles/2016-4/iStock_000018957752_Medium.jpg" style="width: 100%;">
+            <div class="content">
+            <h3>
+                Experienced Photographers
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt est quidem debitis aut. Repellendus velit illum repudiandae nihil!
+            </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--testimonials-->
+<section class="testimonials">
+<h1>
+    What Customars Says
+</h1>
+<p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde placeat et voluptatum accusamus. Natus, id maiores ipsum porro molestias quis?
+</p>
+<div class="row">
+    <div class="testimonial-col">
+        <img src="https://c.superprof.com/i/m/13217152/600/20230517182148/13217152.jpg">
+        <div>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id,a tempore, commodi unde! Ipsa illum possimus reiciendis odio odit, sed fugiat pariatur.
+            </p>
+            <h3>
+                Abhishikta Das
+            </h3>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+        </div>
+    </div>
+    <div class="testimonial-col">
+        <img src="https://c.superprof.com/i/m/27265644/600/20230723135939/27265644.jpg">
+        <div>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id,a tempore, commodi unde! Ipsa illum possimus reiciendis odio odit, sed fugiat pariatur.
+            </p>
+            <h3>
+                Ratnadip Mishra
+            </h3>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+        </div>
+    </div>
+    <div class="testimonial-col">
+        <img src="https://c.superprof.com/i/m/16778170/600/20230407165514/16778170.jpg">
+        <div>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id,a tempore, commodi unde! Ipsa illum possimus reiciendis odio odit, sed fugiat pariatur.
+            </p>
+            <h3>
+                Suprakash dutt
+            </h3>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+        </div>
+    </div>
+    <div class="testimonial-col">
+        <img src="https://c.superprof.com/i/m/22346986/600/20220915155007/22346986.jpg">
+        <div>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id,a tempore, commodi unde! Ipsa illum possimus reiciendis odio odit, sed fugiat pariatur.
+            </p>
+            <h3>
+                Debosrija Mahanti
+            </h3>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+        </div>
+    </div>
+</div>
+</section>
+
+<!--call to action-->
+<section class="cta">
+<h1>
+    EnrollFor Our Various Online Courses<br> Anywhere Form The World
+</h1> 
+<a href="" class="hero-btn" style="color: #fff;">CONTACT US</a>
+</section>
+
+
+<!--footer-->
+<section class="footer">
+    <h4>
+        About us
+    </h4>
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet provident eius soluta, ullam est, a deleniti praesentium quae fugiat<br> dolorem id neque eum illum corporis eligendi reprehenderit? Esse, repellendus architecto.
+    </p>
+    <div class="icons">
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-linkedin"></i>
+    </div>
+    <p>
+        Made with <i class="fa fa-heart-o"></i>by easy tutorials
+    </p>
+</section>
+    <script>
+        /*course*/
+        let imgContainer = document.querySelector(".img-container");
+        let imgContainer1 = document.querySelector(".img-container1");
+        let imgContainer2 = document.querySelector(".img-container2");
+    
+        setInterval(() =>{
+            let last = imgContainer.firstElementChild;
+            last.remove();
+            imgContainer.appendChild(last.cloneNode(true)); // Clone the node to avoid moving the same image element
+        }, 2500);
+    
+        setInterval(() =>{
+            let last = imgContainer1.firstElementChild;
+            last.remove();
+            imgContainer1.appendChild(last.cloneNode(true)); // Clone the node to avoid moving the same image element
+        }, 2500);
+    
+        setInterval(() =>{
+            let last = imgContainer2.firstElementChild;
+            last.remove();
+            imgContainer2.appendChild(last.cloneNode(true)); // Clone the node to avoid moving the same image element
+        }, 2500);
+        
+    </script>
+</body>
+</html>
